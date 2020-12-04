@@ -70,6 +70,12 @@ viz_Roads <- function(INFRA) {
 }
 
 
+#' Visualize District Geology
+#'
+#' @return
+#' @export
+#'
+
 viz_Geo <- function() {
 
   rockPal <- leaflet::colorFactor("Paired", geo$ROCKTYPE1)
