@@ -4,10 +4,10 @@
 \alias{viz_Roads}
 \title{Leaflet with INFRA Roads}
 \usage{
-viz_Roads(INFRA)
+viz_Roads(data)
 }
 \arguments{
-\item{INFRA}{A INFRA road layer. Variable must be all caps.}
+\item{data}{A INFRA road layer. Variable must be all caps.}
 }
 \value{
 A leafet map with roads colored by Route Status and popup with select info.
