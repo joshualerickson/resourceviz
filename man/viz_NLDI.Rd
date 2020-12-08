@@ -19,10 +19,12 @@ viz_NLDI(
 
 \item{maptype}{A \code{character} indicating maptype. see \link[ggmap]{get_map} documentation}
 
+\item{source}{A \code{character} indicating what maptype source.}
+
 \item{zoom}{A \code{numeric} value between 1-13, zoom level for ggmap.}
 }
 \value{
-
+A leaflet map with NLDI basin boundary, UT, UM and point.
 }
 \description{
 Title
