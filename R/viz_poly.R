@@ -3,10 +3,11 @@
 #'
 #' @return A leaflet map with USGS basemaps
 #' @export
-#' @imort ggplot2
+#' @import ggplot2
 #'
 #' @examples
 viz_Area <- function() {
+
 
   grp <- c("USGS Topo", "USGS Imagery Only", "USGS Imagery Topo",
            "USGS Shaded Relief", "Hydrography")
@@ -54,7 +55,7 @@ viz_Roads <- function(data) {
 
   rdPal <- leaflet::colorFactor(c("orange", "red", "blue", "black"), INFRA$ROUTE_STAT)
 
-  data %>%  leaflet::addPolylines(data = INFRA, color = ~rdPal(ROUTE_STAT),
+ data %>% leaflet::addPolylines(data = INFRA, color = ~rdPal(ROUTE_STAT),
                                         group = "road",
                                      popup = paste0("<b>","ID: ","</b>", INFRA$ID,
                                                     "<br>","<b>", "Name: ", "</b>", INFRA$NAME,
@@ -117,7 +118,7 @@ viz_Soils <- function(data) {
 
   soilsPal <- leaflet::colorFactor("Paired", soils$cut_L)
   data %>% leaflet::addPolygons(data = geoII, group = "soils",
-                                color = ~soilsPal(cut_L),
+                                color = ~soilsPal(soils$cut_L),
                                 popup = paste0("<b>","Soil Level: ","</b>", soils$cut_L,
                                                "<br>", "<b>", "Soil Type: ", "</b>",soils$cut_L))
 

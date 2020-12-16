@@ -224,5 +224,51 @@ viz_NLDIcatch <- function(comidID) {
 }
 
 
+#' Plot GridMET
+#'
+#' @description A wrapper function around \link[climateR]{getGridMET} that plot's time series for
+#' selected parameters.
+#' @param data A sf point object
+#' @param row \code{numeric}. If a specific place is wanted then enter row.
+#' @param param \code{character}. See \link[climateR]{getGridMET} for more info.
+#' @param startDate \code{character}. "2020-01-01"
+#' @param endDate \code{character}. "2020-01-01"
+#'
+#' @return A ggplot.
+#' @export
+#'
+#' @examples
+viz_GridMET <- function(data, row, param = "prcp", startDate = "2019-01-01", endDate = "2020-01-01") {
 
+
+  if(!missing(row)){
+    data <- data %>% slice({{ row }})
+    ts  <- getGridMET(data, param = param, startDate = startDate, endDate = endDate)
+
+    ggplot(data = ts, aes_string(x = "date", y = param)) +
+      geom_line() +
+      stat_smooth(col = "red") +
+      theme_bw() +
+      labs(title = paste0("GridMET Daily: ", param, " at ", data$station_nm), x = "Date", y = paste0(param))
+
+  } else {
+
+    ts <- data.frame()
+    for (i in 1:nrow(data)) {
+
+      time  <- getGridMET(data[i,], param = param, startDate = startDate, endDate = endDate)
+      time <- time %>% mutate(group = data[i,]$station_nm)
+
+      ts <- plyr::rbind.fill(ts, time)
+    }
+
+    ggplot(data = ts, aes_string(x = "date", y = param)) +
+      geom_line() +
+      stat_smooth(col = "red") +
+      theme_bw() +
+      facet_wrap(~group, scales = "free")
+
+  }
+
+}
 
