@@ -6,9 +6,10 @@
 #' @return
 #'
 #' @examples
+
 grab_names <- function(data) {
 
-lng <- length(data$x$calls) - 7
+lng <- length(data$x$calls)-7
 names <- vector()
 for(i in 1:lng){
 

@@ -116,11 +116,11 @@ viz_GeoII <- function(data) {
 
 viz_Soils <- function(data) {
 
-  soilsPal <- leaflet::colorFactor("Paired", soils$cut_L)
+  soilsPal <- leaflet::colorFactor("RdBu", soils$cut_L, reverse = TRUE)
   data %>% leaflet::addPolygons(data = geoII, group = "soils",
                                 color = ~soilsPal(soils$cut_L),
                                 popup = paste0("<b>","Soil Level: ","</b>", soils$cut_L,
-                                               "<br>", "<b>", "Soil Type: ", "</b>",soils$cut_L))
+                                               "<br>", "<b>", "Soil Type: ", "</b>",soils$LANDTY))
 
 }
 

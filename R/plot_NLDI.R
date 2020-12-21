@@ -14,7 +14,9 @@
 #' @export
 #'
 #' @examples
-viz_NLDI <- function(sf_pt, leaflet = TRUE, maptype = "terrain", source = "google", zoom = 8) {
+viz_NLDI <- function(sf_pt, leaflet = TRUE,
+                     maptype = "terrain", source = "google",
+                     zoom = 8, return.sf = TRUE) {
 
 
 
@@ -136,7 +138,7 @@ viz_NLDI <- function(sf_pt, leaflet = TRUE, maptype = "terrain", source = "googl
                                                          "<br>", "<b>", "DA/Length: ", "</b>", round((sum(units::set_units(sf::st_length(nldi_data$UM), mi))+sum(units::set_units(sf::st_length(nldi_data$UT), mi)))/(units::set_units(sf::st_area(nldi_data$basin_boundary), mi^2)),1), " Miles",
                                                          "<br>", "<b>", "Identifier: ", "</b>",nldi_data$site_data$identifier))
 
-    map_nldi
+    print(map_nldi)
 
 
   } else if (leaflet == "FALSE") {
@@ -156,7 +158,17 @@ viz_NLDI <- function(sf_pt, leaflet = TRUE, maptype = "terrain", source = "googl
 
 
   }
+if (return.sf == "TRUE"){
 
+  nldi <- nldi_data %>%
+    list(basin_area_sq_miles = units::set_units(sf::st_area(nldi_data$basin_boundary), mi^2),
+         basin_area_acres = units::set_units(sf::st_area(nldi_data$basin_boundary), acres),
+         UM_miles = sum(units::set_units(sf::st_length(nldi_data$UM), mi)),
+         UT_miles = sum(units::set_units(sf::st_length(nldi_data$UT), mi)),
+         comid = nldi_data$site_data$identifier
+    )
+
+  return(nldi)}
 }
 
 
@@ -170,7 +182,7 @@ viz_NLDI <- function(sf_pt, leaflet = TRUE, maptype = "terrain", source = "googl
 #' @importFrom magrittr '%>%'
 #'
 #' @examples
-viz_NLDIcatch <- function(comidID) {
+viz_NLDIcatch <- function(comidID, return.sf = FALSE) {
 
   nldi_feature <- list(featureSource = "comid",
                        featureID = comidID)
@@ -218,7 +230,9 @@ viz_NLDIcatch <- function(comidID) {
       leafem::addMouseCoordinates(epsg = "EPSG:4326", proj4string = "+proj=utm +zone=32 +ellps=WGS84 +datum=WGS84 +units=m +no_defs")
 
 
-
+if (return.sf == "TRUE"){
+  return(cat)
+}
 
 
 }
@@ -242,8 +256,8 @@ viz_GridMET <- function(data, row, param = "prcp", startDate = "2019-01-01", end
 
 
   if(!missing(row)){
-    data <- data %>% slice({{ row }})
-    ts  <- getGridMET(data, param = param, startDate = startDate, endDate = endDate)
+    data <- data %>% dplyr::slice({{ row }})
+    ts  <- climateR::getGridMET(data, param = param, startDate = startDate, endDate = endDate)
 
     ggplot(data = ts, aes_string(x = "date", y = param)) +
       geom_line() +
@@ -257,7 +271,7 @@ viz_GridMET <- function(data, row, param = "prcp", startDate = "2019-01-01", end
     for (i in 1:nrow(data)) {
 
       time  <- getGridMET(data[i,], param = param, startDate = startDate, endDate = endDate)
-      time <- time %>% mutate(group = data[i,]$station_nm)
+      time <- time %>% dplyr::mutate(group = data[i,]$station_nm)
 
       ts <- plyr::rbind.fill(ts, time)
     }
