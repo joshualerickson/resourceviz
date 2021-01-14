@@ -158,7 +158,7 @@ viz_NLDI <- function(sf_pt, leaflet = TRUE,
 
 
   }
-if (return.sf == "TRUE"){
+if (return.sf == TRUE){
 
   nldi <- nldi_data %>%
     list(basin_area_sq_miles = units::set_units(sf::st_area(nldi_data$basin_boundary), mi^2),
@@ -230,7 +230,7 @@ viz_NLDIcatch <- function(comidID, return.sf = FALSE) {
       leafem::addMouseCoordinates(epsg = "EPSG:4326", proj4string = "+proj=utm +zone=32 +ellps=WGS84 +datum=WGS84 +units=m +no_defs")
 
 
-if (return.sf == "TRUE"){
+if (return.sf == TRUE){
   return(cat)
 }
 

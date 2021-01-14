@@ -4,7 +4,7 @@
 \alias{viz_NLDIcatch}
 \title{Visualise NLDI catchments}
 \usage{
-viz_NLDIcatch(comidID)
+viz_NLDIcatch(comidID, return.sf = FALSE)
 }
 \arguments{
 \item{comidID}{A nhdplus comid.}

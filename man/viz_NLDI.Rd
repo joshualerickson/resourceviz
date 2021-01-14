@@ -9,7 +9,8 @@ viz_NLDI(
   leaflet = TRUE,
   maptype = "terrain",
   source = "google",
-  zoom = 8
+  zoom = 8,
+  return.sf = TRUE
 )
 }
 \arguments{
