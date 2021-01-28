@@ -255,6 +255,7 @@ if (return.sf == TRUE){
 viz_GridMET <- function(data, row, param = "prcp", startDate = "2019-01-01", endDate = "2020-01-01") {
 
 
+
   if(!missing(row)){
     data <- data %>% dplyr::slice({{ row }})
     ts  <- climateR::getGridMET(data, param = param, startDate = startDate, endDate = endDate)
