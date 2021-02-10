@@ -21,7 +21,7 @@ viz_Def <- function(data) {
 #' Visualize 30m TWI
 #'
 #' @return
-#' @export
+
 #'
 
 viz_TWI <- function(data) {

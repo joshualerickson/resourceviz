@@ -28,6 +28,6 @@ Imports:
     ggplot2,
     ggmap,
     raster,
-    rgee
-Depends: 
-    R (>= 2.10)
+    rgee,
+    shiny,
+    leaflet.extras,
