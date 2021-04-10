@@ -63,17 +63,17 @@ viz_NLDI <- function(sf_pt, leaflet = TRUE,
   }
 
 
-  base_url <- paste0("https://labs.waterdata.usgs.gov/api/nldi/linked-data/comid/",nld$features$properties$identifier,"/tot")
-
-  error <- httr::GET(url = base_url,
-                     httr::write_disk(path = file.path(tempdir(),
-                                                       "catch_tmp.json"),overwrite = TRUE))
-
-  catch_tmp <- jsonlite::fromJSON(file.path(tempdir(),"catch_tmp.json"))
-  catch_tmp <- catch_tmp$characteristics %>% dplyr::as_tibble()
-  catch_tmp <- dplyr::left_join(catch_tmp, chars, by = "characteristic_id") %>%
-    dplyr::select(Description = "characteristic_description", Value = "characteristic_value",Units = "units",  Theme = "theme_label") %>% dplyr::arrange(Theme)
-
+  # base_url <- paste0("https://labs.waterdata.usgs.gov/api/nldi/linked-data/comid/",nld$features$properties$identifier,"/tot")
+  #
+  # error <- httr::GET(url = base_url,
+  #                    httr::write_disk(path = file.path(tempdir(),
+  #                                                      "catch_tmp.json"),overwrite = TRUE))
+  #
+  # catch_tmp <- jsonlite::fromJSON(file.path(tempdir(),"catch_tmp.json"))
+  # catch_tmp <- catch_tmp$characteristics %>% dplyr::as_tibble()
+  # catch_tmp <- dplyr::left_join(catch_tmp, chars, by = "characteristic_id") %>%
+  #   dplyr::select(Description = "characteristic_description", Value = "characteristic_value",Units = "units",  Theme = "theme_label") %>% dplyr::arrange(Theme)
+  #
 
 
   if(leaflet == "TRUE") {
