@@ -5,7 +5,7 @@
 #' @export
 #'
 
-light_and_cairo <- function() {
+cairo_view <- function() {
 
 
   trace(grDevices::png, quote({
@@ -14,7 +14,5 @@ light_and_cairo <- function() {
       antialias <- "subpixel"
     }
   }), print = FALSE)
-
-  theme_set(new = theme_light())
 
 }
