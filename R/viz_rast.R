@@ -33,7 +33,7 @@ viz_TWI <- function(data) {
                           group = 'twi') %>%
     leaflet::addLegend(pal = twiPal, values = raster::values(twi),
               title = "10m TWI") %>%
-    leafem::addImageQuery(twi, project = TRUE,
+    leafem::addImageQuery(data, project = TRUE,
                   layerId = "twi")
 
 }

@@ -143,9 +143,9 @@ viz_NLDI <- function(sf_pt, leaflet = TRUE,
 
   } else if (leaflet == "FALSE") {
 
-    bbox <- stats::setNames(sf::st_bbox(sf::st_buffer(nldi_data$basin_boundary, .05)), c("left", "bottom", "right", "top"))
+    bbox <- stats::setNames(sf::st_bbox(sf::st_buffer(nldi_data$basin_boundary, 0.05)), c("left", "bottom", "right", "top"))
 
-    basemap_satellite <- ggmap::get_map(maptype = maptype, source = {{ source }}, location = bbox, zoom = zoom)
+    basemap_satellite <- ggmap::get_map(maptype = maptype, source = source, location = bbox, zoom = zoom)
     satellite <- ggmap::ggmap(basemap_satellite)
 
     satellite +

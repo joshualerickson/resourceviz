@@ -31,3 +31,5 @@ Imports:
     rgee,
     shiny,
     leaflet.extras,
+    mapedit,
+    leaflet.esri
