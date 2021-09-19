@@ -23,7 +23,7 @@ Imports:
     nhdplusTools,
     tidyr,
     dplyr,
-    stringr, 
+    stringr,
     magrittr,
     ggplot2,
     ggmap,
@@ -32,4 +32,5 @@ Imports:
     shiny,
     leaflet.extras,
     mapedit,
-    leaflet.esri
+    leaflet.esri,
+    soilDB
