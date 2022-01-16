@@ -4,7 +4,7 @@
 \alias{google_map}
 \title{Title}
 \usage{
-google_map(aoi, maptype = "terrain", zoom = 12)
+google_map(aoi, maptype = "terrain", source = "google", zoom = 12)
 }
 \arguments{
 \item{aoi}{Area of Interest}

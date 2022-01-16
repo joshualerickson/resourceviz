@@ -33,4 +33,5 @@ Imports:
     leaflet.extras,
     mapedit,
     leaflet.esri,
-    soilDB
+    soilDB,
+    ggtext
