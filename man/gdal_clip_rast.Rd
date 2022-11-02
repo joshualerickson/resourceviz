@@ -4,7 +4,7 @@
 \alias{gdal_clip_rast}
 \title{Get raster clip}
 \usage{
-gdal_clip_rast(sf, infile, outfile, layers)
+gdal_clip_rast(sf, infile, outfile, layers, cutline)
 }
 \arguments{
 \item{layers}{}
