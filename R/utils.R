@@ -83,3 +83,58 @@ get_StreamStats_points <- function(state){
                                                                                          layers = list(state_num$id))) %>%
     mapedit::drawFeatures(map = .)
 }
+
+
+#' Add R2 to ggplot
+#' @param ... Additional params to add to stat_poly_eq.
+#' @description This is an idea and code taken from
+#' Anatolli Tsyplenkov https://github.com/atsyplenkov to add the R2 statistic to a ggplot.
+#' @return A ggplot layer
+#' @export
+#'
+
+Add_R2 <- function(...){
+
+  list(
+    ggpmisc::stat_poly_eq(aes(label =  paste(stat(eq.label),
+                                             stat(rr.label),
+                                             sep = "~~~~")),
+                          formula = y~x,
+                          rr.digits = 2,
+                          # coef.digits = 2,
+                          parse = TRUE,
+                          ...),
+    ggplot2::geom_smooth(
+                         linetype = 'dashed',
+                         method = 'lm',
+                         formula = y~x,
+                         se = F)
+  )
+}
+
+
+#' Helper List Function
+#' @description This helps get the stations with the transducers into a list
+#' after they've been processed.
+#' @param names A character vector indicating names you want discarded in list.
+#' @return A list
+#' @export
+#'
+
+sites_to_list <- function(names = NULL) {
+
+  list_sites <- list('Pony' = pony_wl_final,
+       'Edna' = edna_wl_final,
+       'Stahl' = stahl_wl_final,
+       'Brimstone' = brimstone_wl_final,
+       'Middle Fortine' = fortine_wl_final,
+       'Parsnip' = parsnip_wl_final,
+       'Sutton' = sutton_wl_final)
+
+  if(!is.null(names)){
+
+  list_sites <- purrr::discard(list_sites, names(list_sites) %in% names)
+  }
+
+  list_sites
+}

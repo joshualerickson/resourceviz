@@ -4,14 +4,22 @@
 \alias{gdal_clip_rast}
 \title{Get raster clip}
 \usage{
-gdal_clip_rast(sf, infile, outfile, layers, cutline)
+gdal_clip_rast(sf, infile, outfile)
 }
 \arguments{
-\item{layers}{}
+\item{sf}{An sf object.}
+
+\item{infile}{A file path to the simple feature to clip.}
+
+\item{outfile}{A file path to write the clip to.}
 }
 \value{
 
 }
 \description{
 Get raster clip
+}
+\note{
+Sometimes you will need to double quote your path if there are spaces or unique
+characters that CLI needs quoted, e.g. '"C:/josh erickson/some file path/"'.
 }

@@ -1,0 +1,60 @@
+---
+title: "Appendices: <br> <span style='color: black; font-size: 30px'> </span>"
+output: word_document
+---
+
+```{r, include=F}
+knitr::opts_chunk$set(dev.args = list(png = list(type = "cairo")))
+library(dplyr)
+library(ggplot2)
+library(tidyr)
+library(kableExtra)
+library(scales)
+thematic::thematic_on(font = 'Montserrat')
+
+```
+
+
+
+```{r, echo=FALSE, message=F, error=F, warning=FALSE, eval=eval_huc_table}
+
+  h12 <- get_huc12_information(...)
+
+  hydro_huc_table(h12)
+  
+```
+
+<br>
+<br>
+
+```{r, echo=FALSE, message=F, error=F, warning=FALSE, eval=eval_prop_table}
+harv_stats <- get_treatment_proportion(...)
+treatment_table(harv_stats)
+```
+
+<br>
+<br>
+
+```{r, echo=FALSE, message=F, error=F, warning=FALSE, eval=eval_roads_table}
+if(exists(h12)){
+  
+  roads_table(h12)
+  
+} else {
+  
+  h12 <- get_huc12_information(...)
+  roads_table(h12)
+  
+  }
+
+```
+
+<br>
+<br>
+
+```{r, echo=FALSE, message=F, error=F, warning=FALSE, results = 'hide',fig.height=6,fig.width=11, eval=eval_plot}
+
+get_tss_boxplot(...)
+
+```
+

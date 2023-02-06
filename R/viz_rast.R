@@ -7,7 +7,7 @@
 viz_Def <- function(data) {
 
   defPal <- leaflet::colorQuantile("RdBu", def, reverse = TRUE, na.color = "transparent")
-  data %>% leaflet::addRasterImage(def,
+  data %>% leafem::addGeoRaster(def,
                          colors = defPal,
                          opacity = 0.5,
                          group = 'def') %>%

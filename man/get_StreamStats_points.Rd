@@ -4,7 +4,7 @@
 \alias{get_StreamStats_points}
 \title{Get Stream Stats Stream Tile}
 \usage{
-get_StreamStats_points(data, state)
+get_StreamStats_points(state)
 }
 \arguments{
 \item{state}{Must be a single state abbreviation or full name}
