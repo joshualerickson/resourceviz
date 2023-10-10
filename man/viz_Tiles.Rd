@@ -9,9 +9,6 @@ viz_Tiles(data, group = "deficit")
 \arguments{
 \item{data}{}
 }
-\value{
-
-}
 \description{
 Visualize Tiles
 }

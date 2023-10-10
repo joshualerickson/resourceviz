@@ -11,9 +11,6 @@ get_compMax_intersection(soildf, sf)
 
 \item{sf}{a sf object that intersects soildf}
 }
-\value{
-
-}
 \description{
 Get Max Composition
 }

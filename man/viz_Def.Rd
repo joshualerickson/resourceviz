@@ -6,9 +6,6 @@
 \usage{
 viz_Def(data)
 }
-\value{
-
-}
 \description{
 Visualize 30m Climatic Water Deficit
 }

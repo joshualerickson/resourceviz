@@ -11,9 +11,6 @@ convert_to_timeframe(data, unit)
 
 \item{unit}{How to parse the time, e.g. '2 hour', '1 day'.}
 }
-\value{
-
-}
 \description{
 Convert Date and Time
 }

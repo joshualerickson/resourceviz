@@ -4,12 +4,14 @@
 \alias{get_treatment_proportion}
 \title{Getting Treatment Proportions}
 \usage{
-get_treatment_proportion(path = NULL, sf = NULL, ...)
+get_treatment_proportion(path = NULL, sf = NULL, layer = "PotentialUnits", ...)
 }
 \arguments{
 \item{path}{character; typically the T:Drive}
 
 \item{sf}{An sf object.}
+
+\item{layer}{If using a gdb or gpkg indicate the layer name you want.}
 
 \item{...}{Additional arguments.}
 }

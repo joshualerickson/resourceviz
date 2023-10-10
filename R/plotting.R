@@ -39,14 +39,18 @@ mapping_arg <- if(map_void == 1){
 }
 
   theme_bw(base_size = font_size, base_family = font_family) %+replace%
-    theme(line = element_line(color = "black", size = line_size,
-                              linetype = 1, lineend = "butt"), rect = element_rect(fill = NA,
-                                                                                   color = NA, size = line_size, linetype = 1), text = element_text(family = font_family,
-                                                                                                                                                    face = "plain", color = "black", size = font_size,
-                                                                                                                                                    hjust = 0.5, vjust = 0.5, angle = 0, lineheight = 0.9,
-                                                                                                                                                    margin = margin(), debug = FALSE), axis.line = element_line(color = "black",
-                                                                                                                                                                                                                size = line_size, lineend = "square"), axis.line.x = NULL,
-          axis.line.y = NULL, axis.text = element_text(color = "black",
+    theme(line = element_line(color = "black",
+                              size = line_size,
+                              linetype = 1,
+                              lineend = "butt"),
+                              rect = element_rect(fill = NA,
+                              color = NA, size = line_size, linetype = 1),
+                              text = element_text(family = font_family,
+                              face = "plain", color = "black", size = font_size,
+                              hjust = 0.5, vjust = 0.5, angle = 0, lineheight = 0.9,
+                              margin = margin(), debug = FALSE), axis.line = element_line(color = "black",
+                              size = line_size, lineend = "square"), axis.line.x = NULL,
+                              axis.line.y = NULL, axis.text = element_text(color = "black",
                                                        size = small_size),
           axis.text.x =  element_markdown(margin = margin(t = small_size/4), vjust = 1),
           axis.ticks = element_line(color = "black",size = line_size),
@@ -88,13 +92,15 @@ mapping_arg <- if(map_void == 1){
           strip.placement.y = NULL, strip.switch.pad.grid = unit(half_line/2,
                                                                  "pt"), strip.switch.pad.wrap = unit(half_line/2,
                                                                                                      "pt"), plot.background = element_blank(),
-          plot.title = element_markdown(face = "bold", size = rel(rel_large),
+          plot.title = element_textbox(face = "bold", size = rel(rel_large),
                                         hjust = 0, vjust = 1, margin = margin(b = half_line)),
           plot.subtitle = element_text(size = rel(rel_small),hjust = 0, vjust = 1, margin = margin(b = half_line)),
           plot.caption = element_markdown(size = rel(rel_tiny),
                                           hjust = 1, vjust = 1, margin = margin(t = half_line)),
           plot.tag = element_text(face = "bold", hjust = 0,
-                                  vjust = 0.7), plot.tag.position = c(0, 1), plot.margin = margin(half_line,half_line, half_line, half_line), complete = TRUE) +
+                                  vjust = 0.7),
+                                  plot.tag.position = c(0, 1),
+                                  plot.margin = margin(half_line,half_line, half_line, half_line), complete = TRUE) +
     mapping_arg
 
 

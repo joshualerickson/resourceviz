@@ -13,9 +13,6 @@ aoi_unzip(filename, inDir, outDir = tempfile(), pt = F)
 
 \item{outDir}{A \code{characater} indicating where shape file should go, e.g. 'D:/downloads'.}
 }
-\value{
-
-}
 \description{
 Title
 }

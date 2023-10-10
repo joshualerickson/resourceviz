@@ -9,9 +9,6 @@ get_soil_proportion(soil_catch)
 \arguments{
 \item{soil_catch}{a previously created get_compMax_intersection() object}
 }
-\value{
-
-}
 \description{
 Get Soil Proportion
 }

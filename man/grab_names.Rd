@@ -9,9 +9,6 @@ grab_names(data)
 \arguments{
 \item{data}{}
 }
-\value{
-
-}
 \description{
 grab arg names
 }

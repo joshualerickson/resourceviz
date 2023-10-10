@@ -19,9 +19,6 @@ custom_theme(
 \arguments{
 \item{color}{}
 }
-\value{
-
-}
 \description{
 Custom Theme
 }

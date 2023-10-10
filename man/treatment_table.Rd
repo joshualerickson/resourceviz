@@ -9,9 +9,6 @@ treatment_table(data)
 \arguments{
 \item{data}{A previously created \link{get_treatment_propotion} object.}
 }
-\value{
-
-}
 \description{
 Get Treatment Table
 }

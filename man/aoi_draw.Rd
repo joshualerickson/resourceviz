@@ -6,9 +6,6 @@
 \usage{
 aoi_draw()
 }
-\value{
-
-}
 \description{
 Title
 }

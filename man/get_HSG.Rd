@@ -9,9 +9,6 @@ get_HSG(sf)
 \arguments{
 \item{sf}{}
 }
-\value{
-
-}
 \description{
 Gets hydrologic soil group per composition per polygon
 but also a lot of other ssurgo information.

@@ -32,9 +32,6 @@ water_level_conversion(
 
 \item{gh}{A numeric vector indicating the gage height for a particular day(s).}
 }
-\value{
-
-}
 \description{
 Convert to Inches
 }

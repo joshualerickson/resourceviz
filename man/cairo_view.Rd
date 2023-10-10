@@ -8,9 +8,6 @@ the ggplot2 theme to 'theme_light()'.}
 \usage{
 cairo_view()
 }
-\value{
-
-}
 \description{
 Graph Style
 This function sets the graphics to 'cairo-png' for better graphing in the IDE. It also sets

@@ -13,9 +13,6 @@ gdal_clip_rast(sf, infile, outfile)
 
 \item{outfile}{A file path to write the clip to.}
 }
-\value{
-
-}
 \description{
 Get raster clip
 }

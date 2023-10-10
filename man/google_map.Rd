@@ -13,9 +13,6 @@ google_map(aoi, maptype = "terrain", source = "google", zoom = 12)
 
 \item{zoom}{}
 }
-\value{
-
-}
 \description{
 Title
 }

@@ -116,13 +116,14 @@ get_wy_stats <- function(procDV) {
 #'
 #' @param path character; typically the T:Drive
 #' @param sf A sf object.
+#' @param layer If using a gdb or gpkg indicate the layer name you want.
 #' @param ... additional arguments
 #' @return A data.frame
 #' @export
-#' @note This function assumes that there is a gdb with a layer name 'ProposedAction'. If not
+#' @note This function assumes that there is a gdb with a layer name 'PotentialUnits'. If not
 #' (missing) then it defaults to the sf object of the units.
 
-get_huc12_information <- function(path = NULL, sf = NULL, ...){
+get_huc12_information <- function(path = NULL, sf = NULL, layer = 'PotentialUnits', ...){
 
 
 # get units for project within the T: drive
@@ -132,7 +133,7 @@ if(!is.null(path)){
 
   if(stringr::str_detect(path, '.gdb')) {
 
-  pa <- sf::st_read(path, layer = 'ProposedAction', quiet = T) %>%
+  pa <- sf::st_read(path, layer = layer, quiet = T) %>%
   sf::st_cast('MULTIPOLYGON')
 
   } else {
@@ -250,11 +251,12 @@ final_data <- list(final_daily = mod_results_final_daily,final_hourly = mod_resu
 #'
 #' @param path character; typically the T:Drive
 #' @param sf An sf object.
+#' @param layer If using a gdb or gpkg indicate the layer name you want.
 #' @param ... Additional arguments.
 #' @return A data.frame
 #' @export
 #'
-get_treatment_proportion <- function(path = NULL,sf = NULL, ...) {
+get_treatment_proportion <- function(path = NULL,sf = NULL, layer = 'PotentialUnits', ...) {
 
   if(missing(path) && !is.null(sf)){pa <- sf %>% sf::st_cast('MULTIPOLYGON')}
 
@@ -263,7 +265,7 @@ get_treatment_proportion <- function(path = NULL,sf = NULL, ...) {
 
     if(stringr::str_detect(path, '.gdb')) {
 
-      pa <- sf::st_read(path, layer = 'ProposedAction', quiet = T) %>%
+      pa <- sf::st_read(path, layer = layer, quiet = T) %>%
         sf::st_cast('MULTIPOLYGON')
 
     } else {
@@ -279,7 +281,7 @@ get_treatment_proportion <- function(path = NULL,sf = NULL, ...) {
 
   pa <- pa[!sf::st_is_empty(pa),]
 
-  possible_treatment_names <- c('Treatment', 'treatment', 'activity', 'Activity')
+  possible_treatment_names <- c('Treatment', 'treatment','Harvest_Tr', 'activity', 'Activity')
   possible_col_names <- c('unit', 'Unit', 'Units', 'units', 'acres', 'Acres')
 
 
@@ -338,6 +340,7 @@ bx <- ggplot(data = site,
                geom = "text",
                hjust = 0.5) +
   expand_limits(y = 0)  +
+  geom_hline(yintercept = 20 ) +
   scale_y_continuous(sec.axis = dup_axis(label = NULL,
                                          name = NULL),
                      expand = expansion(mult = c(0, 0))) +
@@ -376,6 +379,7 @@ cowplot::plot_grid(bx,
     scale_y_continuous(sec.axis = dup_axis(label = NULL,
                                            name = NULL),
                        expand = expansion(mult = c(0, 0))) +
+    geom_hline(yintercept = 20 ) +
     labs(x = 'Year', y = 'Total Suspended Sediment (TSS) mg/l') +
     custom_theme()+
     facet_wrap(Stream~season,...)

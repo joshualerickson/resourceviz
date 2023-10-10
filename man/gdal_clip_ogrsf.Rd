@@ -15,9 +15,6 @@ gdal_clip_ogrsf(sf, infile, outfile, layers)
 
 \item{layers}{A character vector. In case you are using a GPKG or gdb you can add the layers here.}
 }
-\value{
-
-}
 \description{
 Get OGR (OpenGIS Simple Features Reference Implementation)
 Simple Features Library to clip simple features with GDAL. Provide an sf object and clip large

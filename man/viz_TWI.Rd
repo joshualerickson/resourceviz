@@ -6,9 +6,6 @@
 \usage{
 viz_TWI(data)
 }
-\value{
-
-}
 \description{
 Visualize 30m TWI
 }

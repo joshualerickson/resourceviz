@@ -9,9 +9,6 @@ roads_table(data)
 \arguments{
 \item{data}{A previously created \link{get_huc12_information} object.}
 }
-\value{
-
-}
 \description{
 Get Roads Table
 }

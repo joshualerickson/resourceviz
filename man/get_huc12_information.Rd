@@ -4,12 +4,14 @@
 \alias{get_huc12_information}
 \title{Get HUC12 Info}
 \usage{
-get_huc12_information(path = NULL, sf = NULL, ...)
+get_huc12_information(path = NULL, sf = NULL, layer = "PotentialUnits", ...)
 }
 \arguments{
 \item{path}{character; typically the T:Drive}
 
 \item{sf}{A sf object.}
+
+\item{layer}{If using a gdb or gpkg indicate the layer name you want.}
 
 \item{...}{additional arguments}
 }
@@ -20,6 +22,6 @@ A data.frame
 Get HUC12 Info
 }
 \note{
-This function assumes that there is a gdb with a layer name 'ProposedAction'. If not
+This function assumes that there is a gdb with a layer name 'PotentialUnits'. If not
 (missing) then it defaults to the sf object of the units.
 }
