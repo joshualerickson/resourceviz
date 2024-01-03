@@ -441,7 +441,7 @@ get_tss_timeseries <- function(stream, year, ...){
 #' @noRd
 get_master_flow <- function() {
 
-  master_flow <- readxl::read_xlsx('C:/Users/joshualerickson/Box/2500WatershedAirMgmt/EUR/stream/+Master Flow Data.xlsx')
+  master_flow <- readxl::read_xlsx('C:/Users/joshualerickson/Box/2500WatershedAirMgmt/EUR/stream/master_flow_data.xlsx')
 
 }
 
